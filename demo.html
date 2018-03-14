@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>demo</title>
+<script src="dist/animation-1.0.0.js"></script>
+<style>
+body {
+    font-size: 20px;
+    font-weight: bold;
+}
+li {
+    width: 10px;
+    margin: 10px 0;
+    background: #080;
+    color: #fff;
+}
+.a1.animation {
+    transition: 6s;
+}
+.a2 {
+    width: 30px;
+}
+.a3 {
+    width: 20px;
+}
+.a3.animation {
+    transition: 1s;
+}
+.animation {
+    transition: 3s;
+    width: 200px;
+}
+</style>
+</head>
+
+<body>
+<h1>Demo</h1>
+<ul>
+    <li class="a1">1</li>
+    <li class="a2">2</li>
+    <li class="a3">3</li>
+</ul>
+<div>
+    <button id="btn-parallel" type="button">parallel</button>
+    <button id="btn-series" type="button">series</button>
+    <button id="btn-race" type="button">race</button>
+    <button id="btn-reset" type="button" style="color: #f00;">reset</button>
+</div>
+<script>
+function bindClick(selector, handle) {
+    var el = document.querySelector(selector);
+    el.addEventListener('click', handle);
+}
+
+function done() {
+    alert('done');
+}
+
+bindClick('#btn-parallel', function () {
+    animation.parallel('li').then(done);
+});
+
+bindClick('#btn-series', function () {
+    animation.series('li').then(done);
+});
+
+bindClick('#btn-race', function () {
+    animation.race('li').then(done);
+});
+
+bindClick('#btn-reset', function () {
+    Array.from(document.querySelectorAll('.animation')).forEach(function (item) {
+        item.classList.remove('animation');
+    });
+});
+
+</script>
+</body>
+</html>
