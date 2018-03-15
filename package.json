@@ -2,13 +2,13 @@
   "name": "animation",
   "version": "1.0.0",
   "description": "A lightweight JavaScript animation library.",
-  "main": "animation.js",
+  "main": "index.js",
   "scripts": {
-    "precommit": "node_modules/.bin/eslint animation.js",
-    "dev": "./node_modules/.bin/babel animation.js --out-file dist/animation-${npm_package_version}.js --source-maps inline --watch",
+    "precommit": "node_modules/.bin/eslint index.js",
+    "dev": "./node_modules/.bin/babel --out-file dist/animation-${npm_package_version}.js --source-maps inline --watch index.js",
     "prebuild": "rm -rf dist/*.js",
-    "build": "./node_modules/.bin/babel animation.js --out-file dist/animation-${npm_package_version}.js",
-    "postbuild": "./node_modules/.bin/babel animation.js --out-file dist/animation-${npm_package_version}.min.js --minified",
+    "build": "./node_modules/.bin/babel --out-file dist/animation-${npm_package_version}.js index.js",
+    "postbuild": "./node_modules/.bin/babel --out-file dist/animation-${npm_package_version}.min.js --minified index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

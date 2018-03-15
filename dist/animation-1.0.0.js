@@ -1,6 +1,6 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['module', 'exports'], factory);
+        define('animation', ['module', 'exports'], factory);
     } else if (typeof exports !== "undefined") {
         factory(module, exports);
     } else {
